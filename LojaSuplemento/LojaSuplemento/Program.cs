@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LojaSuplemento.Objetos;
+using System;
 
 namespace LojaSuplemento
 {
@@ -6,7 +7,16 @@ namespace LojaSuplemento
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Carrinho teste = new Carrinho();
+            Produto produtoteste = new Produto("teste", 1, "tetsetse", 1, 100);
+
+            teste.CarrinhoCliente.Add(produtoteste);
+
+            foreach(var item in teste.CarrinhoCliente)
+            {
+                Console.WriteLine(item.Nome);
+            }
+
         }
     }
 }

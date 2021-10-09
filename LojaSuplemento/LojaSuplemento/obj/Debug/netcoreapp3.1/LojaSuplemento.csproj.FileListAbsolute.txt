@@ -1,0 +1,13 @@
+E:\Projetos\C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\bin\Debug\netcoreapp3.1\LojaSuplemento.exe
+E:\Projetos\C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\bin\Debug\netcoreapp3.1\LojaSuplemento.deps.json
+E:\Projetos\C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\bin\Debug\netcoreapp3.1\LojaSuplemento.runtimeconfig.json
+E:\Projetos\C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\bin\Debug\netcoreapp3.1\LojaSuplemento.runtimeconfig.dev.json
+E:\Projetos\C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\bin\Debug\netcoreapp3.1\LojaSuplemento.dll
+E:\Projetos\C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\bin\Debug\netcoreapp3.1\LojaSuplemento.pdb
+E:\Projetos\C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\obj\Debug\netcoreapp3.1\LojaSuplemento.csproj.AssemblyReference.cache
+E:\Projetos\C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\obj\Debug\netcoreapp3.1\LojaSuplemento.AssemblyInfoInputs.cache
+E:\Projetos\C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\obj\Debug\netcoreapp3.1\LojaSuplemento.AssemblyInfo.cs
+E:\Projetos\C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\obj\Debug\netcoreapp3.1\LojaSuplemento.csproj.CoreCompileInputs.cache
+E:\Projetos\C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\obj\Debug\netcoreapp3.1\LojaSuplemento.dll
+E:\Projetos\C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\obj\Debug\netcoreapp3.1\LojaSuplemento.pdb
+E:\Projetos\C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\obj\Debug\netcoreapp3.1\LojaSuplemento.genruntimeconfig.cache
