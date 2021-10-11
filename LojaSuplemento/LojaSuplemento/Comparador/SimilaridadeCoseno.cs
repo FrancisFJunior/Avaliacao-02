@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LojaSuplemento.Matematicas
+namespace LojaSuplemento.Comparador
 {
     class SimilaridadeCoseno
     {
-        public double CompararVetores(double[] user1, double[] user2)
+        public static double CompararVetores(double[] user1, double[] user2)
         {
             double somaProduto = 0.0;
             double somaQuadradoUm = 0.0;
