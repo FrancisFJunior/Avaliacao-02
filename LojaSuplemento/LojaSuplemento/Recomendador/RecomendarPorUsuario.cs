@@ -11,7 +11,7 @@ namespace LojaSuplemento.Recomendador
     class RecomendarPorUsuario
     {
         private Cliente cliente;
-        public IEnumerable<SimilaridadeCliente> ComparaClientes(Cliente user)
+        public IEnumerable<SimilaridadeCliente> ComparaClientes(Cliente thisUser)
         {
             SimilaridadeCliente similaridadeCliente = new SimilaridadeCliente();
             List<double> thisUserCompras = new List<double>();
@@ -19,9 +19,9 @@ namespace LojaSuplemento.Recomendador
             
             foreach (Cliente clientes in cliente.ListaCliente)
             {
-                foreach(Cliente usuarioComparado in clientes.historicoCompras)
+                foreach(Cliente thatUser in clientes.historicoCompras)
                 {
-                    if (user.historicoCompras.idProduto == usuarioComparado.ListaCliente.idProduto)
+                    if (thisUser.historicoCompras.idProduto == thatUser.ListaCliente.idProduto)
                     {
                         thisUserCompras.Add(1);
                         thatUserCompras.Add(1);
