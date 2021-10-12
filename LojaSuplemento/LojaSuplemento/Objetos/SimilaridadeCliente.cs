@@ -4,10 +4,21 @@ using System.Text;
 
 namespace LojaSuplemento.Objetos
 {
-    class SimilaridadeCliente : Cliente
+    class SimilaridadeCliente
     {
         double comparacaoCliente;
+        int idClienteComparado;
         List<SimilaridadeCliente> clientesComparados;
+
+        public SimilaridadeCliente()
+        {
+            clientesComparados = new List<SimilaridadeCliente>();
+        }
+        public SimilaridadeCliente(double comparacaoCliente, int idClienteComparado)
+        {
+            this.idClienteComparado = idClienteComparado;
+            this.comparacaoCliente = comparacaoCliente;
+        }
 
         public List<SimilaridadeCliente>  ClienteComparados
         {

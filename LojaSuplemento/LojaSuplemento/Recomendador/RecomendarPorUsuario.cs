@@ -17,27 +17,30 @@ namespace LojaSuplemento.Recomendador
             List<double> thisUserCompras = new List<double>();
             List<double> thatUserCompras = new List<double>();
             
-            foreach (Cliente clientes in cliente.ListaCliente)
+            foreach (Cliente clientes in cliente.Clientes)
             {
-                foreach(Cliente thatUser in clientes.historicoCompras)
+                foreach(Produto thisUserHistory in clientes.HistoricoCompras)
                 {
-                    if (thisUser.historicoCompras.idProduto == thatUser.ListaCliente.idProduto)
-                    {
-                        thisUserCompras.Add(1);
-                        thatUserCompras.Add(1);
+                    foreach (Produto thatUserHistory in clientes.HistoricoCompras)
+                    {                
+                        if (thisUserHistory.IDProduto == thatUserHistory.IDProduto)
+                        {
+                            thisUserCompras.Add(1);
+                            thatUserCompras.Add(1);
 
-                    }
-                    else
-                    {
-                        thisUserCompras.Add(1);
-                        thatUserCompras.Add(0);
+                        }
+                        else 
+                        {
+                            thisUserCompras.Add(1);
+                            thatUserCompras.Add(0);
+                        }
                     }
                 }
                 double[] thisUserArray = thisUserCompras.ToArray();
                 double[] thatUserArray = thisUserCompras.ToArray();
                 double ResultadoComparacao = SimilaridadeCoseno.CompararVetores(thisUserArray, thatUserArray);
 
-                similaridadeCliente.ClienteComparados.Add(ResultadoComparacao, clientes.ListaCliente.idCliente);                
+                similaridadeCliente.ClienteComparados.Add(new SimilaridadeCliente(ResultadoComparacao, clientes.IDCliente));                
 
             }
             var ordenacaoComparacaoCliente = similaridadeCliente.ClienteComparados.OrderByDescending(x => x.ComparacaoCliente);
