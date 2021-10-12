@@ -43,6 +43,10 @@ namespace LojaSuplemento.Objetos
         {
             get { return valor; }
         }
+        public List<Produto> Produtos
+        {
+            get { return produto; }
+        }
     }
 }
 
