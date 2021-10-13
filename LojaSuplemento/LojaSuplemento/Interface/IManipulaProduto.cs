@@ -11,7 +11,7 @@ namespace LojaSuplemento.Interface
 
         public void RemoverProduto(int idProduto);
 
-        public void AtualizarProduto(int idProduto);
+        public void AtualizarProduto(int idProduto, int qtd);
 
 
     }

@@ -22,6 +22,7 @@ namespace LojaSuplemento.Objetos
                 if( item.IDProduto == idProduto)
                 {
                     carrinhoCliente.Add(item);
+
                 }
                 else
                 {
@@ -49,9 +50,15 @@ namespace LojaSuplemento.Objetos
 
         }
 
-        public void AtualizarProduto(int idProduto)
+        public void AtualizarProduto(int idProduto, int qtd)
         {
-            throw new NotImplementedException();
+            foreach (var item in produtosLoja.Produtos)
+            {
+                if (item.IDProduto == idProduto)
+                {
+                    item.Quantidade = qtd;
+                }
+            }
         }
 
         public List<Produto> CarrinhoCliente

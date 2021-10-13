@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
+using LojaSuplemento.Helpers;
 
 namespace LojaSuplemento.Objetos
 {
@@ -26,20 +28,20 @@ namespace LojaSuplemento.Objetos
         }
        
 
-        public void AdicionarProduto(int idProduto)
+        public void AdicionarProduto(int idProduto, Produto prod)
         {
-            foreach (var item in produto)
+            var produtoEncontrado = produto.FirstOrDefault(x => x.IDProduto == idProduto);
+            if(produtoEncontrado == null)
             {
-                if (item.IDProduto != idProduto)
-                {
-                    produto.Add(item);
-                }
-                else
-                {
-                    Console.WriteLine("Não existe esse produto na loja!");
-                }
+                produto.Add(prod);
 
+            }else if (produtoEncontrado.idProduto == idProduto)
+            {
+                produto.Remove(produtoEncontrado);
+                produto.Add(prod);
+                Console.WriteLine("Produto editado com sucesso!");
             }
+            
         }
 
         public void RemoverProduto(int idProduto)
@@ -59,30 +61,50 @@ namespace LojaSuplemento.Objetos
             }
         }
 
-        public void AtualizarProduto(int idProduto)
+        public void AtualizarProduto(int idProduto, int qtd)
         {
-            throw new NotImplementedException();
+            foreach (var item in produto)
+            {
+                if (item.IDProduto == idProduto)
+                {
+                    HelperManipulaProduto.EditarProduto(item);
+                }
+            }
         }
 
         public string Nome
         {
             get { return nome; }
+            set { nome = value; }
         }
         public int IDProduto
         {
             get { return idProduto; }
+            set { idProduto = value; }
         }
         public string Descricao
         {
             get { return descricao; }
+            set { descricao = value; }
         }
         public int Quantidade
         {
             get { return qtd; }
+            set { 
+                if (value <= Quantidade)
+                {
+                    Console.WriteLine("Não possue essa quantidade no estoque");
+                }
+                else
+                {
+                    qtd = value;
+                }
+            }
         }
         public double Valor
         {
             get { return valor; }
+            set { valor = value; }
         }
         public List<Produto> Produtos
         {
