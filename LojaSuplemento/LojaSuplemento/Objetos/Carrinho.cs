@@ -1,20 +1,23 @@
-﻿using System;
+﻿using LojaSuplemento.Interface;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace LojaSuplemento.Objetos
 {
-    public class Carrinho 
+    public class Carrinho : IManipulaProduto
     {
+        Produto produtosLoja = new Produto();
         List<Produto> carrinhoCliente = new List<Produto>();
         public Carrinho()
         {
            carrinhoCliente = new List<Produto>();
         }
         
-        public void AdicionarProduto(int idProduto, List<Produto> produtosLoja)
+        public void AdicionarProduto(int idProduto)
         {
-            foreach (var item in produtosLoja)
+            
+            foreach (var item in produtosLoja.Produtos)
             {
                 if( item.IDProduto == idProduto)
                 {
@@ -29,9 +32,9 @@ namespace LojaSuplemento.Objetos
                 
         }
 
-        public void RemoverProduto(int idProduto, List<Produto> produtosLoja)
+        public void RemoverProduto(int idProduto)
         {
-            foreach (var item in produtosLoja)
+            foreach (var item in produtosLoja.Produtos)
             {
                 if (item.IDProduto == idProduto)
                 {
@@ -44,6 +47,11 @@ namespace LojaSuplemento.Objetos
 
             }
 
+        }
+
+        public void AtualizarProduto(int idProduto)
+        {
+            throw new NotImplementedException();
         }
 
         public List<Produto> CarrinhoCliente

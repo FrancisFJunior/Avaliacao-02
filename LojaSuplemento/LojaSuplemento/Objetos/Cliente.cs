@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LojaSuplemento.Objetos
 {
-    public class Cliente
+    public abstract class Cliente
     {
         protected string nome;
         protected int idCliente;

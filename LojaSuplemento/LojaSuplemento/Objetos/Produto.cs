@@ -1,10 +1,11 @@
-﻿using System;
+﻿using LojaSuplemento.Interface;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace LojaSuplemento.Objetos
 {
-    public class Produto
+    public class Produto : IManipulaProduto
     {
         private List<Produto> produto;
         protected string nome;
@@ -14,7 +15,7 @@ namespace LojaSuplemento.Objetos
         protected double valor;
         public Produto()
         { }
-        public Produto(string nome, int idProduto, string descricao, int qtd, double valor)
+        public Produto(int idProduto, string nome, string descricao, int qtd, double valor)
         {
             produto = new List<Produto>();
             this.nome = nome;
@@ -23,6 +24,46 @@ namespace LojaSuplemento.Objetos
             this.qtd = qtd;
             this.valor = valor;
         }
+       
+
+        public void AdicionarProduto(int idProduto)
+        {
+            foreach (var item in produto)
+            {
+                if (item.IDProduto != idProduto)
+                {
+                    produto.Add(item);
+                }
+                else
+                {
+                    Console.WriteLine("Não existe esse produto na loja!");
+                }
+
+            }
+        }
+
+        public void RemoverProduto(int idProduto)
+        {
+            
+            foreach (var item in produto)
+            {
+                if (item.IDProduto == idProduto)
+                {
+                    produto.Remove(item);
+                }
+                else
+                {
+                    Console.WriteLine("Não existe esse produto na loja!");
+                }
+
+            }
+        }
+
+        public void AtualizarProduto(int idProduto)
+        {
+            throw new NotImplementedException();
+        }
+
         public string Nome
         {
             get { return nome; }
