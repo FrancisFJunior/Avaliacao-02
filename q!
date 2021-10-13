@@ -1,0 +1,79 @@
+[33mcommit f49885a67629fae7ea41e5604fea64eb0ae4200f[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Richardson <richardm@ucl.br>
+Date:   Tue Oct 12 22:12:26 2021 -0300
+
+    Consertando Classe Cliente
+
+[33mcommit a750e73fde4dd285a2f2854961de561df37c2498[m
+Merge: 1a775d3 826099f
+Author: Richardson <richardm@ucl.br>
+Date:   Tue Oct 12 22:10:30 2021 -0300
+
+    Melhorando O Sistema de Recomendação
+
+[33mcommit 1a775d3ac89d0bfa489fae996f05d6eee135eb89[m
+Author: Richardson <richardm@ucl.br>
+Date:   Tue Oct 12 22:08:20 2021 -0300
+
+    resolvendo conflito
+
+[33mcommit 07fa13d0b33ddfde4dc3a9b71650d765a834884a[m
+Author: Richardson <richardm@ucl.br>
+Date:   Tue Oct 12 09:41:16 2021 -0300
+
+    Melhorando o sistema de  recomendação
+
+[33mcommit 826099fe1e5bba602aa6e8ecbae294e1fecacad3[m[33m ([m[1;31morigin/recommendersystem[m[33m, [m[1;32mrecommendersystem[m[33m)[m
+Author: Richardson <richardm@ucl.br>
+Date:   Tue Oct 12 09:41:16 2021 -0300
+
+    Atualizando Algumas Classes, e melhorando o sistema de  recomendação
+
+[33mcommit 55656621a27535522db1ece9895679ec1ed61c09[m
+Author: Richardson <richardm@ucl.br>
+Date:   Mon Oct 11 19:09:19 2021 -0300
+
+    Alterando o Nome De variáveis
+
+[33mcommit dbe95627a77aac025c15ffe13e4b73008d179d00[m
+Author: Richardson <richardm@ucl.br>
+Date:   Mon Oct 11 18:59:20 2021 -0300
+
+    Implementação inicial do Recomendador
+
+[33mcommit 6631787e838d5d24f1d11a5068c832c2d5195cb7[m
+Author: Richardson <richardm@ucl.br>
+Date:   Sun Oct 10 19:38:03 2021 -0300
+
+    Adicionando Classe SimilaridadeCoseno
+
+[33mcommit 7ded5b645d5fca29f3bd4d83bdb0ee1d85dbcd46[m
+Author: Richardson <richardm@ucl.br>
+Date:   Sun Oct 10 19:26:19 2021 -0300
+
+    Objetos
+
+[33mcommit 90f950e79348ec5b716b1232ed94a43fc1be77fe[m
+Merge: 0ab7cc2 7cffe49
+Author: Richardson <richardm@ucl.br>
+Date:   Sat Oct 9 17:54:10 2021 -0300
+
+    Erro De conflito
+
+[33mcommit 0ab7cc2330bae35df18065a24585d43a719d8f76[m
+Author: Richardson <richardm@ucl.br>
+Date:   Sat Oct 9 16:59:45 2021 -0300
+
+    Objetos
+
+[33mcommit 7cffe496714c2a72ce950def744c0dce37c4ac78[m
+Author: Richardson <richardm@ucl.br>
+Date:   Sat Oct 9 16:59:45 2021 -0300
+
+    Initial Commit
+
+[33mcommit 0f000da88e858f8e98f1340b9757c25e4f7e0a1b[m
+Author: Francis Junior <69554262+FrancisFJunior@users.noreply.github.com>
+Date:   Sat Oct 9 16:51:58 2021 -0300
+
+    Add files via upload
