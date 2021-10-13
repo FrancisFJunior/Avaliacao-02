@@ -1,10 +1,13 @@
-﻿using System;
+﻿using LojaSuplemento.Interface;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
+using LojaSuplemento.Helpers;
 
 namespace LojaSuplemento.Objetos
 {
-    public class Produto
+    public class Produto : IManipulaProduto
     {
         private List<Produto> produto;
         protected string nome;
@@ -14,7 +17,7 @@ namespace LojaSuplemento.Objetos
         protected double valor;
         public Produto()
         { }
-        public Produto(string nome, int idProduto, string descricao, int qtd, double valor)
+        public Produto(int idProduto, string nome, string descricao, int qtd, double valor)
         {
             produto = new List<Produto>();
             this.nome = nome;
@@ -23,25 +26,85 @@ namespace LojaSuplemento.Objetos
             this.qtd = qtd;
             this.valor = valor;
         }
+       
+
+        public void AdicionarProduto(int idProduto, Produto prod)
+        {
+            var produtoEncontrado = produto.FirstOrDefault(x => x.IDProduto == idProduto);
+            if(produtoEncontrado == null)
+            {
+                produto.Add(prod);
+
+            }else if (produtoEncontrado.idProduto == idProduto)
+            {
+                produto.Remove(produtoEncontrado);
+                produto.Add(prod);
+                Console.WriteLine("Produto editado com sucesso!");
+            }
+            
+        }
+
+        public void RemoverProduto(int idProduto)
+        {
+            
+            foreach (var item in produto)
+            {
+                if (item.IDProduto == idProduto)
+                {
+                    produto.Remove(item);
+                }
+                else
+                {
+                    Console.WriteLine("Não existe esse produto na loja!");
+                }
+
+            }
+        }
+
+        public void AtualizarProduto(int idProduto, int qtd)
+        {
+            foreach (var item in produto)
+            {
+                if (item.IDProduto == idProduto)
+                {
+                    HelperManipulaProduto.EditarProduto(item);
+                }
+            }
+        }
+
         public string Nome
         {
             get { return nome; }
+            set { nome = value; }
         }
         public int IDProduto
         {
             get { return idProduto; }
+            set { idProduto = value; }
         }
         public string Descricao
         {
             get { return descricao; }
+            set { descricao = value; }
         }
         public int Quantidade
         {
             get { return qtd; }
+            set { 
+                if (value <= Quantidade)
+                {
+                    Console.WriteLine("Não possue essa quantidade no estoque");
+                }
+                else
+                {
+                    qtd = value;
+                }
+            }
         }
         public double Valor
         {
             get { return valor; }
+            set { valor = value; }
         }
         public List<Produto> Produtos
         {
