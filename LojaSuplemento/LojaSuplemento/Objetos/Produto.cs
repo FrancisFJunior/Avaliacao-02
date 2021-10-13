@@ -28,28 +28,12 @@ namespace LojaSuplemento.Objetos
         }
        
 
-        public void AdicionarProduto(int idProduto, Produto prod)
-        {
-            var produtoEncontrado = produto.FirstOrDefault(x => x.IDProduto == idProduto);
-            if(produtoEncontrado == null)
-            {
-                produto.Add(prod);
-
-            }else if (produtoEncontrado.idProduto == idProduto)
-            {
-                produto.Remove(produtoEncontrado);
-                produto.Add(prod);
-                Console.WriteLine("Produto editado com sucesso!");
-            }
-            
-        }
+        public void AdicionarProduto(int idProduto){}
 
         public void RemoverProduto(int idProduto)
         {
-            
-            foreach (var item in produto)
-            {
-                if (item.IDProduto == idProduto)
+            var item = HelperManipulaProduto.VerificaProduto(idProduto);
+            if (item.IDProduto == idProduto)
                 {
                     produto.Remove(item);
                 }
@@ -58,18 +42,16 @@ namespace LojaSuplemento.Objetos
                     Console.WriteLine("Não existe esse produto na loja!");
                 }
 
-            }
         }
 
         public void AtualizarProduto(int idProduto, int qtd)
         {
-            foreach (var item in produto)
+            var item = HelperManipulaProduto.VerificaProduto(idProduto);
+            if (item.IDProduto == idProduto)
             {
-                if (item.IDProduto == idProduto)
-                {
                     HelperManipulaProduto.EditarProduto(item);
-                }
             }
+            
         }
 
         public string Nome

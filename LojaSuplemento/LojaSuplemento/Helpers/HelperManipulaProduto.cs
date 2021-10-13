@@ -2,31 +2,19 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace LojaSuplemento.Helpers
 {
     class HelperManipulaProduto
     {
-        public static void AdicionarNovoProduto()
+        static Produto estoque = new Produto();
+        
+        public static Produto VerificaProduto(int idProduto)
         {
-            Console.Write("Digite o ID do produto: ");
-            int idproduto = int.Parse(Console.ReadLine());
+            var produtoEncontrado = estoque.Produtos.FirstOrDefault(x => x.IDProduto == idProduto);
+            return produtoEncontrado;
 
-            Console.Write("Digite o NOME do produto: ");
-            string nomeproduto = Console.ReadLine();
-
-            Console.Write("Digite o DESCRIÇÃO do produto: ");
-            string descricaoproduto = Console.ReadLine();
-
-            Console.Write("Digite o QUANTIDADE do produto: ");
-            int qtdproduto = int.Parse(Console.ReadLine());
-
-            Console.Write("Digite o VALOR do produto: ");
-            double valorproduto =double.Parse(Console.ReadLine());
-
-            Produto produto = new Produto(idproduto, nomeproduto,descricaoproduto,qtdproduto, valorproduto);
-
-            produto.AdicionarProduto(idproduto, produto);
         }
 
         public static void EditarProduto(Produto item)
