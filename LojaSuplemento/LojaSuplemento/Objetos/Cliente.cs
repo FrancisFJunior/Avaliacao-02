@@ -8,10 +8,6 @@ namespace LojaSuplemento.Objetos
     {
         protected string nome;
         protected int idCliente;
-<<<<<<< HEAD
-=======
-        protected List<Cliente> clientes;
->>>>>>> 826099fe1e5bba602aa6e8ecbae294e1fecacad3
         protected List<Produto> historicoCompras;
         public Cliente()
         {
@@ -22,11 +18,11 @@ namespace LojaSuplemento.Objetos
         {
             this.nome = nome;
             this.idCliente = idCliente;
-<<<<<<< HEAD
+
             historicoCompras = new List<Produto>();
-=======
+
             this.historicoCompras = new List<Produto>();
->>>>>>> 826099fe1e5bba602aa6e8ecbae294e1fecacad3
+
         }
         public void AtualizaHistoico(List<Produto> ultimaCompra)
         {
@@ -36,13 +32,7 @@ namespace LojaSuplemento.Objetos
         {
             get { return idCliente; }
         }
-<<<<<<< HEAD
-=======
-        public List<Cliente> Clientes
-        {
-            get { return clientes; }
-        }
->>>>>>> 826099fe1e5bba602aa6e8ecbae294e1fecacad3
+
         public List<Produto> HistoricoCompras
         {
             get { return historicoCompras; }
