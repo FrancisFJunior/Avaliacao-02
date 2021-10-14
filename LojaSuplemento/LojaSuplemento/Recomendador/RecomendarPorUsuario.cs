@@ -6,10 +6,12 @@ using System.Collections.Generic;
 using System.Text;
 
 
+
 namespace LojaSuplemento.Recomendador
 {
     class RecomendarPorUsuario
     {
+        
         public List<SimilaridadeCliente> ComparaClientes(Cliente thisUser, List<Cliente> listaDeClientes)
         {
             SimilaridadeCliente similaridadeCliente = new SimilaridadeCliente();
@@ -40,21 +42,31 @@ namespace LojaSuplemento.Recomendador
                     }
                     double[] thisUserArray = thisUserComparacao.ToArray();
                     double[] thatUserArray = thatUserComparacao.ToArray();
-                    double ResultadoComparacao = SimilaridadeCoseno.CompararVetores(thisUserArray, thatUserArray);
+                    double ResultadoComparacao  = SimilaridadeCoseno.CompararVetores(thisUserArray, thatUserArray);
 
-                    similaridadeCliente.ClienteComparados.Add(new SimilaridadeCliente(ResultadoComparacao, clientes.IDCliente));
-                    similaridadeCliente.ClienteComparados.Add(new SimilaridadeCliente(0.30, 4));
-                    similaridadeCliente.ClienteComparados.Add(new SimilaridadeCliente(0.50, 1));
-
+                    if(ResultadoComparacao < 0.6)
+                    {
+                        similaridadeCliente.ClienteComparados.Add(new SimilaridadeCliente(ResultadoComparacao * 100, clientes.IDCliente));
+                    }
                 }
 
             }
-            var ordenacaoComparacaoCliente = similaridadeCliente.ClienteComparados.OrderByDescending(x => x.ComparacaoCliente).ToList();
+            var clientesParecidos = similaridadeCliente.ClienteComparados.OrderByDescending(x => x.ComparacaoCliente).ToList();
 
-         
-            return ordenacaoComparacaoCliente;
+            return clientesParecidos;
         }
- 
+        
+        public List<Produto> recomendarProduto(List<SimilaridadeCliente> clientesParecidos)
+        {
+           foreach(var cliente in clientesParecidos)
+            {
+                
+            }
+
+           
+
+            return null;
+        }
     }
     
 }

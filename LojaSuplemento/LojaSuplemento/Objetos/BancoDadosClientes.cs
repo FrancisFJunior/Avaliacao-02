@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LojaSuplemento.Helpers
 {
-    class BancoDadosClientes 
+    public class BancoDadosClientes 
     {
         private List<Cliente> allClientes;
 
