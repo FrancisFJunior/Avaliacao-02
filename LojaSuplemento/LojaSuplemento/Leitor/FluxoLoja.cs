@@ -19,21 +19,32 @@ namespace LojaSuplemento.Leitor
 
         public void TelaPrincipal()
         {
-            Console.Clear();
-            Console.WriteLine("|-----------Loja de Suplementos----------");
-            foreach (var item in listaProdutos.Produtos)
+            bool loop = true;
+            while (loop)
             {
-                Console.Write("|");
-                Console.Write(item.IDProduto);
-                Console.Write(item.Nome);
-                Console.Write(item.Descricao);
-                Console.Write(item.Quantidade);
-                Console.Write(item.Valor);
-                Console.WriteLine("");
+                Console.Clear();
+                Console.WriteLine("|----------------------|Loja de Suplementos|----------------------|");
+                 Console.WriteLine("| {0,2}| {1,-42} |{2} | {3,-9} |", "Nº","Nome","Qtd","Valor");
+
+                foreach (var item in listaProdutos.Produtos)
+                {
+                    string print = String.Format("| {0,2}| {1,-42} | {2} | {3,-9:C} |", item.IDProduto, item.Nome, item.Quantidade, item.Valor);
+                    //string print = String.Format("| {0,2}| {1,-42} | {2,-95} | {3} | {4,-9:C}|", item.IDProduto, item.Nome, item.Descricao, item.Quantidade, item.Valor);
+                    Console.WriteLine(print);
+                }
+
+                Console.WriteLine("|----------------------|Digite -1 para sair|----------------------|\n");
+                Console.WriteLine("|-----------------------------------------------------------------|\n\n");
+                
+
+                Console.WriteLine("|Escolha o numero do produto para efetivar a compra:");
+                int opcao = int.Parse(Console.ReadLine());
+
+                //.CarrinhoCliente.Add(produtoteste);
+
             }
             
 
-            Console.WriteLine("|----------------------------------------");
         }
 
         public void iniciaDados()
@@ -48,16 +59,12 @@ namespace LojaSuplemento.Leitor
             bancoDadosClientes.AllClientes.Add(cliente3);
             bancoDadosClientes.AllClientes.Add(cliente4);
 
-            Produto produto0 = new Produto(0, "NATURAL VEGAN", "é formulada por duas proteínas vegetais: proteína dos grãos de arroz e da ervilha.",
+            Produto produto0 = new Produto(0, "NATURAL VEGAN", "Formulada por duas proteínas vegetais: proteína dos grãos de arroz e da ervilha.",
                 24, 169.99);
-
-            Produto produto1 = new Produto(1, "CARNIBOL DARKNESS", "Carnibol é desenvolvido à base de proteína miofibrilar hidrolisada " +
-                "de carne bovina, substância importante para a contração muscular. O suplemento combina em sua composição ingredientes que favorecem " +
-                "o balanço nitrogenado positivo.", 63, 169.99);
-            Produto produto2 = new Produto(2, "ISOFORT", "contém alta concentração de proteína, nutriente que ajuda na formação dos músculos " +
-                "e ossos. É constituído por um sistema de distribuição de proteína isolada e parcialmente hidrolizada do soro de leite (WPI) de " +
-                "excepcional qualidade e de alta concentração (92%), e usa uma tecnologia exclusiva de extração de proteína, promovendo assim uma ótima " +
-                "digestibilidade e otimizando a absorção de nutrientes. ", 46, 299.99);
+            Produto produto1 = new Produto(1, "CARNIBOL DARKNESS", "Base de proteína miofibrilar hidrolisada de carne bovina, importante para a " +
+                "contração muscular.", 63, 169.99);
+            Produto produto2 = new Produto(2, "ISOFORT", "Contém alta concentração de proteína, nutriente que ajuda na formação dos músculos " +
+                "e ossos.", 46, 299.99);
             Produto produto3 = new Produto(3, "PASTA DE AMENDOIM INTEGRAL CROCANTE", "A Pasta de Amendoim Integral fornece energia duradoura para " +
                 "atletas em variados níveis. É fonte de proteínas, rica em gordura saudável e antioxidantes, e tem baixo teor de carboidratos.", 56, 29.99);
             Produto produto4 = new Produto(4, "PASTA DE AMENDOIM INTEGRAL ORIGINAL", "A Pasta de Amendoim Integral fornece energia duradoura para " +
@@ -149,8 +156,6 @@ namespace LojaSuplemento.Leitor
                 "sabores e perfeita cremosidade.", 41, 10.26);
 
             listaProdutos.Produtos.Add(produto0);
-            Console.WriteLine(listaProdutos.Produtos);
-            /*listaProdutos.Produtos.Add(produto0);
             listaProdutos.Produtos.Add(produto1);
             listaProdutos.Produtos.Add(produto2);
             listaProdutos.Produtos.Add(produto3);
@@ -179,7 +184,7 @@ namespace LojaSuplemento.Leitor
             listaProdutos.Produtos.Add(produto27);
             listaProdutos.Produtos.Add(produto28);
             listaProdutos.Produtos.Add(produto29);
-            listaProdutos.Produtos.Add(produto30);*/
+            listaProdutos.Produtos.Add(produto30);
 
         }
 
