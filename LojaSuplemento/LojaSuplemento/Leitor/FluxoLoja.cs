@@ -33,13 +33,22 @@ namespace LojaSuplemento.Leitor
                     Console.WriteLine(print);
                 }
 
-                Console.WriteLine("|----------------------|Digite -1 para sair|----------------------|\n");
+                Console.WriteLine("|----------------------|DIGITE -1 PARA SAIR|----------------------|\n");
                 Console.WriteLine("|-----------------------------------------------------------------|\n\n");
                 
 
-                Console.WriteLine("|Escolha o numero do produto para efetivar a compra:");
+                Console.WriteLine("|Escolha o numero do produto que deseja compra:");
                 int opcao = int.Parse(Console.ReadLine());
-
+                if (opcao != -1)
+                {
+                    var id = HelperManipulaProduto.VerificaProduto(opcao);
+                    Console.WriteLine("Descrição do Produto: {0}", id.Descricao);
+                    Console.WriteLine("|PRESSIONE ENTER para efetuar a compra ou DIGITE 0 para CANCELAR A COMPRA:\n");
+                    int cont = int.Parse(Console.ReadLine());
+                    
+                }
+                
+                loop = false;
                 //.CarrinhoCliente.Add(produtoteste);
 
             }
@@ -185,6 +194,8 @@ namespace LojaSuplemento.Leitor
             listaProdutos.Produtos.Add(produto28);
             listaProdutos.Produtos.Add(produto29);
             listaProdutos.Produtos.Add(produto30);
+
+            HelperManipulaProduto.RecebeEstoque(listaProdutos.Produtos);
 
         }
 
