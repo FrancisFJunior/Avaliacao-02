@@ -17,7 +17,7 @@ namespace LojaSuplemento.Objetos
         protected double valor;
         public Produto()
         { }
-        public Produto(int idProduto, string nome, string descricao, int qtd, double valor)
+        public Produto(string nome, int idProduto, string descricao, int qtd, double valor)
         {
             produto = new List<Produto>();
             this.nome = nome;
@@ -70,6 +70,11 @@ namespace LojaSuplemento.Objetos
                     HelperManipulaProduto.EditarProduto(item);
                 }
             }
+        }
+
+        public void AdicionarProduto(int idProduto)
+        {
+            throw new NotImplementedException();
         }
 
         public string Nome

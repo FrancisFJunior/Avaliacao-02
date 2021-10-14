@@ -9,8 +9,8 @@ namespace LojaSuplemento
     {
         static void Main(string[] args)
         {
-            Cliente cliente1 = new Cliente("teste1", 1);
-            Cliente cliente2 = new Cliente("teste2", 2);
+            Cliente cliente1 = new PessoaFisica(123214,"teste1", 1);
+            Cliente cliente2 = new PessoaFisica(12345,"teste2", 2);
             BancoDadosClientes bancoDadosClientes = new BancoDadosClientes();
             
             RecomendarPorUsuario recomendarPorUsuario = new RecomendarPorUsuario();
@@ -50,7 +50,9 @@ namespace LojaSuplemento
             cliente1.AtualizaHistoico(teste.CarrinhoCliente);
             cliente2.AtualizaHistoico(teste1.CarrinhoCliente);
 
-            var testando = recomendarPorUsuario.ComparaClientes(cliente1);
+            var testando = recomendarPorUsuario.ComparaClientes(cliente1, bancoDadosClientes);
+            var testando2 = recomendarPorUsuario.getHistoricoClienteMaiorAfinidade(testando, bancoDadosClientes);
+            var testando3 = recomendarPorUsuario.RecomendarProduto(cliente1, testando2);
 
             Console.WriteLine(testando);
 

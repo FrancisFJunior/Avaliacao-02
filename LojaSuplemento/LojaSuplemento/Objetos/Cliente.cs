@@ -21,7 +21,6 @@ namespace LojaSuplemento.Objetos
 
             historicoCompras = new List<Produto>();
 
-            this.historicoCompras = new List<Produto>();
 
         }
         public void AtualizaHistoico(List<Produto> ultimaCompra)

@@ -11,8 +11,7 @@ namespace LojaSuplemento.Recomendador
 {
     class RecomendarPorUsuario
     {
-        BancoDadosClientes bancoDadosClientes = new BancoDadosClientes();
-        public List<SimilaridadeCliente> ComparaClientes(Cliente thisUser)
+        public List<SimilaridadeCliente> ComparaClientes(Cliente thisUser, BancoDadosClientes bancoDadosClientes)
         {
             SimilaridadeCliente similaridadeCliente = new SimilaridadeCliente();
             List<double> thisUserComparacao = new List<double>();
@@ -44,10 +43,8 @@ namespace LojaSuplemento.Recomendador
                     double[] thatUserArray = thatUserComparacao.ToArray();
                     double ResultadoComparacao  = SimilaridadeCoseno.CompararVetores(thisUserArray, thatUserArray);
 
-                    if(ResultadoComparacao < 0.6)
-                    {
-                        similaridadeCliente.ClienteComparados.Add(new SimilaridadeCliente(ResultadoComparacao * 100, clientes.IDCliente));
-                    }
+                    similaridadeCliente.ClienteComparados.Add(new SimilaridadeCliente(ResultadoComparacao * 100, clientes.IDCliente));
+                  
                 }
 
             }
@@ -56,13 +53,13 @@ namespace LojaSuplemento.Recomendador
             return clientesParecidos;
         }
         
-        public List<Produto> getHistoricoClienteMaiorAfinidade(List<SimilaridadeCliente> clientesParecidos)
+        public List<Produto> getHistoricoClienteMaiorAfinidade(List<SimilaridadeCliente> clientesParecidos, BancoDadosClientes bancoDadosClientes)
         {
             List<Produto> historicoClienteEscolhido = new List<Produto>();
             foreach (var cliente in bancoDadosClientes.AllClientes)
             {
                 var pegaCliente = clientesParecidos.Select(x => x.IDClienteComparado).Contains(cliente.IDCliente);
-                if (cliente.IDCliente.Equals(pegaCliente))
+                if (pegaCliente)
                 {
                     historicoClienteEscolhido = HelperManipulaDadosCliente.getHistoricoCliente(cliente);
                     break;
@@ -70,6 +67,16 @@ namespace LojaSuplemento.Recomendador
             }
            
             return historicoClienteEscolhido;
+        }
+        public List<Produto> RecomendarProduto(Cliente cliente, List<Produto> historicoClienteMaiorAfinidade)
+        {
+            List<Produto> produtosRecomendados = new List<Produto>();
+            foreach(var produto in historicoClienteMaiorAfinidade)
+            {
+                
+            }
+            return produtosRecomendados;
+           
         }
     }
     

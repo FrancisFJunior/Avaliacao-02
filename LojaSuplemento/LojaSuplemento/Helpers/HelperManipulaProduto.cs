@@ -24,7 +24,7 @@ namespace LojaSuplemento.Helpers
             Console.Write("Digite o VALOR do produto: ");
             double valorproduto =double.Parse(Console.ReadLine());
 
-            Produto produto = new Produto(idproduto, nomeproduto,descricaoproduto,qtdproduto, valorproduto);
+            Produto produto = new Produto(nomeproduto, idproduto, descricaoproduto,qtdproduto, valorproduto);
 
             produto.AdicionarProduto(idproduto, produto);
         }
