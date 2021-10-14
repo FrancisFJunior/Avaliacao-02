@@ -6,9 +6,10 @@ namespace LojaSuplemento.Objetos
 {
     class PessoaFisica : Cliente
     {
-        int CPF;
+        long CPF;
 
-        public PessoaFisica(int CPF, string nome, int idCliente) : base(nome, idCliente)
+
+        public PessoaFisica(long CPF, string nome, int idCliente) : base(nome, idCliente)
         {
             this.CPF = CPF;
         }

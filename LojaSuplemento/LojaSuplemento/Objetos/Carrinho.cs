@@ -2,13 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
+using LojaSuplemento.Helpers;
 
 namespace LojaSuplemento.Objetos
 {
     public class Carrinho : IManipulaProduto
     {
-        Produto produtosLoja = new Produto();
-        List<Produto> carrinhoCliente = new List<Produto>();
+        List<Produto> carrinhoCliente;
         public Carrinho()
         {
            carrinhoCliente = new List<Produto>();
@@ -16,49 +17,48 @@ namespace LojaSuplemento.Objetos
         
         public void AdicionarProduto(int idProduto)
         {
-            
-            foreach (var item in produtosLoja.Produtos)
-            {
-                if( item.IDProduto == idProduto)
-                {
-                    carrinhoCliente.Add(item);
 
-                }
-                else
-                {
-                    Console.WriteLine("Não existe esse produto na loja!");
-                }
-                    
+            var item = HelperManipulaProduto.VerificaProduto(idProduto); 
+            if ( item.IDProduto == idProduto)
+            {
+                carrinhoCliente.Add(item);
+
+            }
+            else
+            {
+                Console.WriteLine("Não existe esse produto na loja!");
             }
                 
         }
 
         public void RemoverProduto(int idProduto)
         {
-            foreach (var item in produtosLoja.Produtos)
+            var item = HelperManipulaProduto.VerificaProduto(idProduto);
+            if (item.IDProduto == idProduto)
             {
-                if (item.IDProduto == idProduto)
-                {
-                    carrinhoCliente.Remove(item);
-                }
-                else
-                {
-                    Console.WriteLine("Não existe esse produto na loja!");
-                }
-
+                carrinhoCliente.Remove(item);
+            }
+            else
+            {
+                Console.WriteLine("Não existe esse produto na loja!");
             }
 
         }
 
         public void AtualizarProduto(int idProduto, int qtd)
         {
-            foreach (var item in produtosLoja.Produtos)
+            var item = HelperManipulaProduto.VerificaProduto(idProduto);
+
+            if (item.Quantidade >= qtd)
             {
-                if (item.IDProduto == idProduto)
+                item.Quantidade -= qtd;
+
+                foreach (var produtoCarrinho in carrinhoCliente)
                 {
-                    item.Quantidade = qtd;
+                    produtoCarrinho.Quantidade = qtd;
                 }
             }
+            
         }
 
         public List<Produto> CarrinhoCliente

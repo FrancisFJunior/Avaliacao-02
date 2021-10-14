@@ -11,3 +11,17 @@ E:\Projetos\C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\obj\Debug\netcoreapp
 E:\Projetos\C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\obj\Debug\netcoreapp3.1\LojaSuplemento.dll
 E:\Projetos\C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\obj\Debug\netcoreapp3.1\LojaSuplemento.pdb
 E:\Projetos\C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\obj\Debug\netcoreapp3.1\LojaSuplemento.genruntimeconfig.cache
+D:\Programação\VS code C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\obj\Debug\netcoreapp3.1\LojaSuplemento.csproj.AssemblyReference.cache
+D:\Programação\VS code C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\obj\Debug\netcoreapp3.1\LojaSuplemento.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programação\VS code C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\obj\Debug\netcoreapp3.1\LojaSuplemento.AssemblyInfoInputs.cache
+D:\Programação\VS code C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\obj\Debug\netcoreapp3.1\LojaSuplemento.AssemblyInfo.cs
+D:\Programação\VS code C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\obj\Debug\netcoreapp3.1\LojaSuplemento.csproj.CoreCompileInputs.cache
+D:\Programação\VS code C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\obj\Debug\netcoreapp3.1\LojaSuplemento.dll
+D:\Programação\VS code C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\obj\Debug\netcoreapp3.1\LojaSuplemento.pdb
+D:\Programação\VS code C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\bin\Debug\netcoreapp3.1\LojaSuplemento.exe
+D:\Programação\VS code C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\bin\Debug\netcoreapp3.1\LojaSuplemento.deps.json
+D:\Programação\VS code C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\bin\Debug\netcoreapp3.1\LojaSuplemento.runtimeconfig.json
+D:\Programação\VS code C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\bin\Debug\netcoreapp3.1\LojaSuplemento.runtimeconfig.dev.json
+D:\Programação\VS code C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\bin\Debug\netcoreapp3.1\LojaSuplemento.dll
+D:\Programação\VS code C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\bin\Debug\netcoreapp3.1\LojaSuplemento.pdb
+D:\Programação\VS code C#\LojaSuplemento\LojaSuplemento\LojaSuplemento\obj\Debug\netcoreapp3.1\LojaSuplemento.genruntimeconfig.cache
