@@ -8,11 +8,17 @@ namespace LojaSuplemento.Helpers
 {
     class HelperManipulaProduto
     {
-        static Produto estoque = new Produto();
-        
+        static List<Produto> estoque;
+
+        public static void RecebeEstoque(List<Produto> produtos)
+        {
+            estoque = produtos;
+        }
+                
         public static Produto VerificaProduto(int idProduto)
         {
-            var produtoEncontrado = estoque.Produtos.FirstOrDefault(x => x.IDProduto == idProduto);
+
+            var produtoEncontrado = estoque.FirstOrDefault(x => x.IDProduto == idProduto);
             return produtoEncontrado;
 
         }

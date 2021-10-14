@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\richa\\.nuget\\packages\\": {}
+    "C:\\Users\\franc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Projetos\\C#\\LojaSuplemento\\LojaSuplemento\\LojaSuplemento\\LojaSuplemento.csproj",
+      "projectUniqueName": "D:\\Programação\\VS code C#\\LojaSuplemento\\LojaSuplemento\\LojaSuplemento\\LojaSuplemento.csproj",
       "projectName": "LojaSuplemento",
-      "projectPath": "E:\\Projetos\\C#\\LojaSuplemento\\LojaSuplemento\\LojaSuplemento\\LojaSuplemento.csproj",
-      "packagesPath": "C:\\Users\\richa\\.nuget\\packages\\",
-      "outputPath": "E:\\Projetos\\C#\\LojaSuplemento\\LojaSuplemento\\LojaSuplemento\\obj\\",
+      "projectPath": "D:\\Programação\\VS code C#\\LojaSuplemento\\LojaSuplemento\\LojaSuplemento\\LojaSuplemento.csproj",
+      "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
+      "outputPath": "D:\\Programação\\VS code C#\\LojaSuplemento\\LojaSuplemento\\LojaSuplemento\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\richa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\franc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -60,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
