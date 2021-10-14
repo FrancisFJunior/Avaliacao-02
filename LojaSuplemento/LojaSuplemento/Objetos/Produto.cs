@@ -55,6 +55,11 @@ namespace LojaSuplemento.Objetos
             
         }
 
+        public void AdicionarProduto(int idProduto)
+        {
+            throw new NotImplementedException();
+        }
+
         public string Nome
         {
             get { return nome; }

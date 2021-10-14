@@ -36,7 +36,9 @@ namespace LojaSuplemento
             cliente1.AtualizaHistoico(teste.CarrinhoCliente);
             cliente2.AtualizaHistoico(teste1.CarrinhoCliente);
 
-            var testando = recomendarPorUsuario.ComparaClientes(cliente1, bancoDadosClientes.AllClientes);
+            var testando = recomendarPorUsuario.ComparaClientes(cliente1, bancoDadosClientes);
+            var testando2 = recomendarPorUsuario.getHistoricoClienteMaiorAfinidade(testando, bancoDadosClientes);
+            var testando3 = recomendarPorUsuario.RecomendarProduto(cliente1, testando2);
 
             Console.WriteLine(testando);*/
 
