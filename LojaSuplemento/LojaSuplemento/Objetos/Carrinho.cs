@@ -9,8 +9,7 @@ namespace LojaSuplemento.Objetos
 {
     public class Carrinho : IManipulaProduto
     {
-        Produto produtosLoja = new Produto();
-        List<Produto> carrinhoCliente = new List<Produto>();
+        List<Produto> carrinhoCliente;
         public Carrinho()
         {
            carrinhoCliente = new List<Produto>();

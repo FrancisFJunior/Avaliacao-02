@@ -9,17 +9,18 @@ namespace LojaSuplemento.Objetos
 {
     public class Produto : IManipulaProduto
     {
-        private List<Produto> produto;
+        private List<Produto> produto ;
         protected string nome;
         protected int idProduto;
         protected string descricao;
         protected int qtd;
         protected double valor;
         public Produto()
-        { }
-        public Produto(int idProduto, string nome, string descricao, int qtd, double valor)
         {
             produto = new List<Produto>();
+        }
+        public Produto(int idProduto, string nome, string descricao, int qtd, double valor)
+        {
             this.nome = nome;
             this.idProduto = idProduto;
             this.descricao = descricao;
@@ -91,6 +92,7 @@ namespace LojaSuplemento.Objetos
         public List<Produto> Produtos
         {
             get { return produto; }
+            
         }
     }
 }

@@ -2,6 +2,7 @@
 using LojaSuplemento.Recomendador;
 using LojaSuplemento.Helpers;
 using System;
+using LojaSuplemento.Leitor;
 
 namespace LojaSuplemento
 {
@@ -9,29 +10,14 @@ namespace LojaSuplemento
     {
         static void Main(string[] args)
         {
-            Cliente cliente1 = new Cliente("teste1", 1);
-            Cliente cliente2 = new Cliente("teste2", 2);
-            BancoDadosClientes bancoDadosClientes = new BancoDadosClientes();
-            
-            RecomendarPorUsuario recomendarPorUsuario = new RecomendarPorUsuario();
-            bancoDadosClientes.AllClientes.Add(cliente1);
-            bancoDadosClientes.AllClientes.Add(cliente2);
-
-            Carrinho teste = new Carrinho();
-            Carrinho teste1 = new Carrinho();
-            Produto produtoteste = new Produto("teste1", 1, "tetsetse", 1, 100);
-            Produto produtoteste2= new Produto("teste2", 2, "tetsetse", 1, 100);
-            Produto produtoteste3 = new Produto("teste3", 3, "tetsetse", 1, 100);
-            Produto produtoteste4 = new Produto("teste4", 4, "tetsetse", 1, 100);
-            Produto produtoteste5 = new Produto("teste5", 5, "tetsetse", 1, 100);
-            Produto produtoteste6 = new Produto("teste6", 6, "tetsetse", 1, 100);
-            Produto produtoteste7 = new Produto("teste7", 7, "tetsetse", 1, 100);
-            Produto produtoteste8 = new Produto("teste8", 8, "tetsetse", 1, 100);
-            Produto produtoteste9 = new Produto("teste9", 9, "tetsetse", 1, 100);
-            Produto produtoteste10 = new Produto("teste10", 10, "tetsetse", 1, 100);
+            FluxoLoja fluxoLoja = new FluxoLoja();
+            fluxoLoja.iniciaDados();
+            fluxoLoja.TelaPrincipal();
 
 
-            teste.CarrinhoCliente.Add(produtoteste);
+
+
+            /*teste.CarrinhoCliente.Add(produtoteste);
             teste.CarrinhoCliente.Add(produtoteste2);
             teste.CarrinhoCliente.Add(produtoteste3);
             teste.CarrinhoCliente.Add(produtoteste4);
@@ -52,11 +38,12 @@ namespace LojaSuplemento
 
             var testando = recomendarPorUsuario.ComparaClientes(cliente1, bancoDadosClientes.AllClientes);
 
-            Console.WriteLine(testando);
+            Console.WriteLine(testando);*/
 
 
             
 
         }
+
     }
 }
