@@ -73,7 +73,7 @@ namespace LojaSuplemento.Recomendador
             List<Produto> produtosRecomendados = new List<Produto>();
             foreach(var produto in historicoClienteMaiorAfinidade)
             {
-                
+               var teste = HelperManipulaProduto.VerificaProduto(produto.IDProduto);
             }
             return produtosRecomendados;
            
