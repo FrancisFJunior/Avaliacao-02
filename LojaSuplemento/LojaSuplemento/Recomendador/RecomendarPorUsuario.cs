@@ -1,25 +1,25 @@
 ﻿using LojaSuplemento.Objetos;
 using LojaSuplemento.Comparador;
+using LojaSuplemento.Helpers;
 using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 
 
-
 namespace LojaSuplemento.Recomendador
 {
     class RecomendarPorUsuario
     {
-        
-        public List<SimilaridadeCliente> ComparaClientes(Cliente thisUser, List<Cliente> listaDeClientes)
+        BancoDadosClientes bancoDadosClientes = new BancoDadosClientes();
+        public List<SimilaridadeCliente> ComparaClientes(Cliente thisUser)
         {
             SimilaridadeCliente similaridadeCliente = new SimilaridadeCliente();
             List<double> thisUserComparacao = new List<double>();
             List<double> thatUserComparacao = new List<double>();
             var thisUserHistory = thisUser.HistoricoCompras.OrderBy(x => x.IDProduto).ToList();
             
-            foreach (Cliente clientes in listaDeClientes)
+            foreach (Cliente clientes in bancoDadosClientes.AllClientes)
             {
                
                 if (clientes.IDCliente != thisUser.IDCliente)
@@ -56,16 +56,20 @@ namespace LojaSuplemento.Recomendador
             return clientesParecidos;
         }
         
-        public List<Produto> recomendarProduto(List<SimilaridadeCliente> clientesParecidos)
+        public List<Produto> getHistoricoClienteMaiorAfinidade(List<SimilaridadeCliente> clientesParecidos)
         {
-           foreach(var cliente in clientesParecidos)
+            List<Produto> historicoClienteEscolhido = new List<Produto>();
+            foreach (var cliente in bancoDadosClientes.AllClientes)
             {
-                
+                var pegaCliente = clientesParecidos.Select(x => x.IDClienteComparado).Contains(cliente.IDCliente);
+                if (cliente.IDCliente.Equals(pegaCliente))
+                {
+                    historicoClienteEscolhido = HelperManipulaDadosCliente.getHistoricoCliente(cliente);
+                    break;
+                }
             }
-
            
-
-            return null;
+            return historicoClienteEscolhido;
         }
     }
     
