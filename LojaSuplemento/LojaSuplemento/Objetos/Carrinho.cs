@@ -1,15 +1,64 @@
-﻿using System;
+﻿using LojaSuplemento.Interface;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace LojaSuplemento.Objetos
 {
-    public class Carrinho : Produto
+    public class Carrinho : IManipulaProduto
     {
+        Produto produtosLoja = new Produto();
         List<Produto> carrinhoCliente = new List<Produto>();
         public Carrinho()
         {
            carrinhoCliente = new List<Produto>();
+        }
+        
+        public void AdicionarProduto(int idProduto)
+        {
+            
+            foreach (var item in produtosLoja.Produtos)
+            {
+                if( item.IDProduto == idProduto)
+                {
+                    carrinhoCliente.Add(item);
+
+                }
+                else
+                {
+                    Console.WriteLine("Não existe esse produto na loja!");
+                }
+                    
+            }
+                
+        }
+
+        public void RemoverProduto(int idProduto)
+        {
+            foreach (var item in produtosLoja.Produtos)
+            {
+                if (item.IDProduto == idProduto)
+                {
+                    carrinhoCliente.Remove(item);
+                }
+                else
+                {
+                    Console.WriteLine("Não existe esse produto na loja!");
+                }
+
+            }
+
+        }
+
+        public void AtualizarProduto(int idProduto, int qtd)
+        {
+            foreach (var item in produtosLoja.Produtos)
+            {
+                if (item.IDProduto == idProduto)
+                {
+                    item.Quantidade = qtd;
+                }
+            }
         }
 
         public List<Produto> CarrinhoCliente

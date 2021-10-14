@@ -4,11 +4,10 @@ using System.Text;
 
 namespace LojaSuplemento.Objetos
 {
-    abstract class Cliente
+    public abstract class Cliente
     {
         protected string nome;
         protected int idCliente;
-        protected List<Cliente> clientes;
         protected List<Produto> historicoCompras;
         public Cliente()
         {
@@ -19,7 +18,11 @@ namespace LojaSuplemento.Objetos
         {
             this.nome = nome;
             this.idCliente = idCliente;
+
+            historicoCompras = new List<Produto>();
+
             this.historicoCompras = new List<Produto>();
+
         }
         public void AtualizaHistoico(List<Produto> ultimaCompra)
         {
@@ -29,10 +32,7 @@ namespace LojaSuplemento.Objetos
         {
             get { return idCliente; }
         }
-        public List<Cliente> Clientes
-        {
-            get { return clientes; }
-        }
+
         public List<Produto> HistoricoCompras
         {
             get { return historicoCompras; }

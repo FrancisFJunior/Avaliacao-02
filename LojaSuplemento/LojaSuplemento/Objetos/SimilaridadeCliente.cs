@@ -24,6 +24,13 @@ namespace LojaSuplemento.Objetos
         {
             get { return clientesComparados; }
         }
+        public int IDClienteComparado
+        {
+            get { return idClienteComparado; }
+
+        }
+
+
         public double ComparacaoCliente
         {
             get { return comparacaoCliente; }
