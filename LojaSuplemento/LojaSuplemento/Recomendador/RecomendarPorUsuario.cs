@@ -11,12 +11,8 @@ namespace LojaSuplemento.Recomendador
 {
     class RecomendarPorUsuario
     {
-<<<<<<< HEAD
         List<Produto> produtosRecomendados = new List<Produto>();
         public List<SimilaridadeCliente> ComparaClientes(Cliente thisUser, BancoDadosClientes bancoDadosClientes)
-=======
-        public List<SimilaridadeCliente> ComparaClientes(Cliente thisUser, Helpers.Dados bancoDadosClientes)
->>>>>>> b140651a6890d2e40d1e21d23d7ee99360003315
         {
             SimilaridadeCliente similaridadeCliente = new SimilaridadeCliente();
             List<double> thisUserComparacao = new List<double>();
@@ -64,7 +60,7 @@ namespace LojaSuplemento.Recomendador
             return clientesParecidos;
         }
 
-        public List<Produto> getHistoricoClienteMaiorAfinidade(List<SimilaridadeCliente> clientesParecidos, Helpers.Dados bancoDadosClientes)
+        public List<Produto> getHistoricoClienteMaiorAfinidade(List<SimilaridadeCliente> clientesParecidos, BancoDadosClientes bancoDadosClientes)
         {
             List<Produto> historicoClienteEscolhido = new List<Produto>();
             

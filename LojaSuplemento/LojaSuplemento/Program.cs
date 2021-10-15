@@ -1,6 +1,5 @@
 ﻿using System;
 using LojaSuplemento.Fluxo;
-using LojaSuplemento.Dados;
 
 namespace LojaSuplemento
 {
@@ -10,8 +9,7 @@ namespace LojaSuplemento
         {
             
             FluxoLoja fluxoLoja = new FluxoLoja();
-            DadosIniciais indados = new DadosIniciais();
-            indados.iniciaDados();
+            fluxoLoja.iniciaDados();
             fluxoLoja.TelaPrincipal();
             
 

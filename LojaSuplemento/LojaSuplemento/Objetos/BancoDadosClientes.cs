@@ -1,15 +1,14 @@
-﻿using LojaSuplemento.Objetos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LojaSuplemento.Helpers
+namespace LojaSuplemento.Objetos
 {
-    public class Dados 
+    class BancoDadosClientes
     {
         private List<Cliente> allClientes;
 
-        public Dados()
+        public BancoDadosClientes()
         {
             allClientes = new List<Cliente>();
         }

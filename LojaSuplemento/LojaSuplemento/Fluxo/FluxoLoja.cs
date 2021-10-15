@@ -8,19 +8,11 @@ namespace LojaSuplemento.Fluxo
 {
     class FluxoLoja
     {
-<<<<<<< HEAD
         BancoDadosClientes bancoDadosClientes = new BancoDadosClientes();
         RecomendarPorUsuario recomendarPorUsuario = new RecomendarPorUsuario();
         Produto listaProdutos = new Produto();
         Carrinho carrinho1 = new Carrinho();
         Cliente cliente1 = new PessoaFisica(11111111111,"Carlos", 1);
-=======
-        
-        RecomendarPorUsuario recomendarPorUsuario = new RecomendarPorUsuario();
-        Produto listaProdutos;
-        Carrinho carrinho1;
-        Cliente cliente1;
->>>>>>> b140651a6890d2e40d1e21d23d7ee99360003315
 
         public void TelaPrincipal()
         {
@@ -34,7 +26,6 @@ namespace LojaSuplemento.Fluxo
                 foreach (var item in listaProdutos.Produtos)
                 {
                     string print = String.Format("| {0,2}| {1,-42} | {2} | {3,-9:C} |", item.IDProduto, item.Nome, item.Quantidade, item.Valor);
-                    //string print = String.Format("| {0,2}| {1,-42} | {2,-95} | {3} | {4,-9:C}|", item.IDProduto, item.Nome, item.Descricao, item.Quantidade, item.Valor);
                     Console.WriteLine(print);
 
                 }
@@ -59,25 +50,18 @@ namespace LojaSuplemento.Fluxo
 
                     Console.WriteLine("|Nome do Produto: {0}", produtoEscolhido.Nome);
                     Console.WriteLine("|Descrição do Produto: {0}\n\n", produtoEscolhido.Descricao);
-<<<<<<< HEAD
                     Console.WriteLine("|PRESSIONE 0 para efetuar a compra ou DIGITE 1 para CANCELAR A COMPRA:");
-=======
-                    Console.WriteLine("|PRESSIONE 1 para efetuar a compra ou DIGITE 0 para CANCELAR A COMPRA:");
->>>>>>> b140651a6890d2e40d1e21d23d7ee99360003315
 
                     int cont = int.Parse(Console.ReadLine());
-                    if(cont == 1)
+                    if(cont == 0)
                     {
                         produtoEscolhido.Quantidade -= 1;
                         carrinho1.CarrinhoCliente.Add(produtoEscolhido);
-<<<<<<< HEAD
                         recomendar.Remove(produtoEscolhido);
-=======
                         cliente1.AtualizaHistoico(carrinho1.CarrinhoCliente);
->>>>>>> b140651a6890d2e40d1e21d23d7ee99360003315
 
                     }
-                    else if (cont == 0)
+                    else if (cont == 1)
                     {
                         TelaPrincipal();
                     }
@@ -85,11 +69,8 @@ namespace LojaSuplemento.Fluxo
                 else
                 {
                     NotaFiscal();
-<<<<<<< HEAD
                     loop = false;
                     
-=======
->>>>>>> b140651a6890d2e40d1e21d23d7ee99360003315
                 }
             }
 
@@ -144,7 +125,6 @@ namespace LojaSuplemento.Fluxo
             return listaSugestoes;
         }
 
-<<<<<<< HEAD
         public void iniciaDados()
         {
             Produto produto0 = new Produto(0, "NATURAL VEGAN", "Formulada por duas proteínas vegetais: proteína dos grãos de arroz e da ervilha.",
@@ -328,8 +308,5 @@ namespace LojaSuplemento.Fluxo
 
         }
 
-
-=======
->>>>>>> b140651a6890d2e40d1e21d23d7ee99360003315
     }
 }
