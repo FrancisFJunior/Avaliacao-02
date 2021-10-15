@@ -5,11 +5,11 @@ using System.Text;
 
 namespace LojaSuplemento.Helpers
 {
-    public class BancoDadosClientes 
+    public class Dados 
     {
         private List<Cliente> allClientes;
 
-        public BancoDadosClientes()
+        public Dados()
         {
             allClientes = new List<Cliente>();
         }
