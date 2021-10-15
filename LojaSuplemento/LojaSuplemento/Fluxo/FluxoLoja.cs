@@ -9,7 +9,7 @@ namespace LojaSuplemento.Fluxo
     class FluxoLoja
     {
         BancoDadosClientes bancoDadosClientes = new BancoDadosClientes();
-        RecomendarPorUsuario recomendarPorUsuario = new RecomendarPorUsuario();
+        RecomendarPorProduto recomendarPorProduto = new RecomendarPorProduto();
         Produto listaProdutos = new Produto();
         Carrinho carrinho1 = new Carrinho();
         Cliente cliente1 = new PessoaFisica(11111111111,"Carlos", 1);
@@ -118,9 +118,9 @@ namespace LojaSuplemento.Fluxo
         public List<Produto> Recomendar(int idCliente)
         {
             var cliente = HelperManipulaDadosCliente.BuscaCliente(idCliente);
-            var listaClientesSimilares = recomendarPorUsuario.ComparaClientes(cliente, bancoDadosClientes);
-            var historicoMaisSimilar = recomendarPorUsuario.getHistoricoClienteMaiorAfinidade(listaClientesSimilares, bancoDadosClientes);
-            var listaSugestoes = recomendarPorUsuario.RecomendarProduto(cliente, historicoMaisSimilar);
+            var listaClientesSimilares = recomendarPorProduto.ComparaClientes(cliente, bancoDadosClientes);
+            var historicoMaisSimilar = recomendarPorProduto.getHistoricoClienteMaiorAfinidade(listaClientesSimilares, bancoDadosClientes);
+            var listaSugestoes = recomendarPorProduto.ListaProdutosRecomendados(cliente, historicoMaisSimilar);
 
             return listaSugestoes;
         }
