@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace LojaSuplemento.Leitor
+namespace LojaSuplemento.Fluxo
 {
     class FluxoLoja
     {
@@ -45,30 +45,73 @@ namespace LojaSuplemento.Leitor
                 Console.WriteLine("|-----------------------------------------------------------------|\n\n");
                 
 
-                Console.WriteLine("|Escolha o numero do produto que deseja compra ou DIGITE -1 PARA SAIR:");
+                Console.WriteLine("|Escolha o numero do produto que deseja compra ou DIGITE -1 PARA FECHAR A COMPRA:");
                 int opcao = int.Parse(Console.ReadLine());
                 if (opcao != -1)
                 {
                     var produtoEscolhido = HelperManipulaProduto.VerificaProduto(opcao);
-                    Console.WriteLine("Descrição do Produto: {0}", produtoEscolhido.Descricao);
-                    Console.WriteLine("|PRESSIONE 1 para efetuar a compra ou DIGITE 0 para CANCELAR A COMPRA:\n");
+
+                    Console.WriteLine("|Nome do Produto: {0}", produtoEscolhido.Nome);
+                    Console.WriteLine("|Descrição do Produto: {0}\n", produtoEscolhido.Descricao);
+                    Console.WriteLine("|PRESSIONE 1 para efetuar a compra ou DIGITE 0 para CANCELAR A COMPRA:");
+
                     int cont = int.Parse(Console.ReadLine());
-                    if(cont != 0)
+                    if(cont == 1)
                     {
                         produtoEscolhido.Quantidade -= 1;
                         carrinho1.CarrinhoCliente.Add(produtoEscolhido);
 
+                    }else if (cont == 0)
+                    {
+                        TelaPrincipal();
                     }
                 }
-                
-                //loop = false;
-                //.CarrinhoCliente.Add(produtoteste);
-
+                else
+                {
+                    NotaFiscal();
+                    loop = false;
+                }
             }
 
             HelperManipulaProduto.RecebeEstoque(listaProdutos.Produtos);
             
 
+        }
+
+        private void NotaFiscal()
+        {
+            double valorTotal = 0;
+            Console.Clear();
+            Console.WriteLine("\n\n|----------------------|Loja de Suplementos|----------------------|");
+            Console.WriteLine("|---------------------------|NOTA FISCAL|-------------------------|");
+
+            foreach (var item in carrinho1.CarrinhoCliente)
+            {
+                string print = String.Format("| {0,2}| {1,-42} | {2} | {3,-9:C} |", item.IDProduto, item.Nome, item.Quantidade,
+                    item.Valor);
+                Console.WriteLine(print);
+                valorTotal += item.Valor;
+            }
+
+            Console.WriteLine("|-----------------------------------------------------------------|");
+            Console.WriteLine("|{0,-53}| {1:C} |", "TOTAL A PAGAR", valorTotal);
+            Console.WriteLine("|-----------------------------------------------------------------|\n\n");
+
+
+            Console.WriteLine("|PRESSIONE 0 para efetuar o pagamento ou 1 PARA VOLTAR as compras |\n\n");
+            int opcao = int.Parse(Console.ReadLine());
+            if (opcao == 1)
+            {
+                TelaPrincipal();
+            }
+            else if (opcao == 0)
+            {
+                Console.Clear();
+                Console.WriteLine("\n\n\n\n\n\n|----------------------|Loja de Suplementos|----------------------|");
+                Console.WriteLine("|-----------------------------------------------------------------|");
+                Console.WriteLine("|------------|OBRIGADO PELA PREFERÊNCIA VOLTE SEMPRE|-------------|");
+                Console.WriteLine("|-----------------------------------------------------------------|\n\n");
+            }
         }
 
         public List<Produto> Recomendar(int idCliente)

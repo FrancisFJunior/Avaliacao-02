@@ -2,7 +2,7 @@
 using LojaSuplemento.Recomendador;
 using LojaSuplemento.Helpers;
 using System;
-using LojaSuplemento.Leitor;
+using LojaSuplemento.Fluxo;
 
 namespace LojaSuplemento
 {
