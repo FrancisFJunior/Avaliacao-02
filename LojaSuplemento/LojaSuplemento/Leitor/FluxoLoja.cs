@@ -16,6 +16,7 @@ namespace LojaSuplemento.Leitor
         BancoDadosClientes bancoDadosClientes = new BancoDadosClientes();
         RecomendarPorUsuario recomendarPorUsuario = new RecomendarPorUsuario();
         Produto listaProdutos = new Produto();
+        Carrinho carrinho1 = new Carrinho();
 
         public void TelaPrincipal()
         {
@@ -55,6 +56,8 @@ namespace LojaSuplemento.Leitor
                     if(cont != 0)
                     {
                         produtoEscolhido.Quantidade -= 1;
+                        carrinho1.CarrinhoCliente.Add(produtoEscolhido);
+
                     }
                 }
                 
@@ -185,6 +188,7 @@ namespace LojaSuplemento.Leitor
             listaProdutos.Produtos.Add(produto6);
             listaProdutos.Produtos.Add(produto7);
             listaProdutos.Produtos.Add(produto8);
+            listaProdutos.Produtos.Add(produto9);
             listaProdutos.Produtos.Add(produto10);
             listaProdutos.Produtos.Add(produto11);
             listaProdutos.Produtos.Add(produto12);
@@ -220,19 +224,21 @@ namespace LojaSuplemento.Leitor
             bancoDadosClientes.AllClientes.Add(cliente4);
             HelperManipulaDadosCliente.RecebeCliente(bancoDadosClientes.AllClientes);
 
-            Carrinho carrinho1 = new Carrinho();
+            
             carrinho1.CarrinhoCliente.Add(produto30);
             carrinho1.CarrinhoCliente.Add(produto20);
             carrinho1.CarrinhoCliente.Add(produto3);
             carrinho1.CarrinhoCliente.Add(produto0);
-            carrinho1.CarrinhoCliente.Add(produto10);
+            carrinho1.CarrinhoCliente.Add(produto8);
 
             Carrinho carrinho2 = new Carrinho();
-            carrinho2.CarrinhoCliente.Add(produto15);
-            carrinho2.CarrinhoCliente.Add(produto1);
+            carrinho2.CarrinhoCliente.Add(produto30);
+            carrinho2.CarrinhoCliente.Add(produto20);
             carrinho2.CarrinhoCliente.Add(produto3);
             carrinho2.CarrinhoCliente.Add(produto0);
             carrinho2.CarrinhoCliente.Add(produto10);
+            carrinho2.CarrinhoCliente.Add(produto9);
+            carrinho2.CarrinhoCliente.Add(produto13);
 
             Carrinho carrinho3 = new Carrinho();
             carrinho3.CarrinhoCliente.Add(produto30);
@@ -240,18 +246,17 @@ namespace LojaSuplemento.Leitor
             carrinho3.CarrinhoCliente.Add(produto3);
             carrinho3.CarrinhoCliente.Add(produto0);
             carrinho3.CarrinhoCliente.Add(produto10);
-            carrinho3.CarrinhoCliente.Add(produto15);
-            carrinho3.CarrinhoCliente.Add(produto1);
-            carrinho3.CarrinhoCliente.Add(produto7);
-            carrinho3.CarrinhoCliente.Add(produto0);
-            carrinho3.CarrinhoCliente.Add(produto22);
+            carrinho3.CarrinhoCliente.Add(produto11);
+            carrinho3.CarrinhoCliente.Add(produto14);
 
             Carrinho carrinho4 = new Carrinho();
-            carrinho4.CarrinhoCliente.Add(produto15);
-            carrinho4.CarrinhoCliente.Add(produto1);
+            carrinho4.CarrinhoCliente.Add(produto30);
+            carrinho4.CarrinhoCliente.Add(produto20);
             carrinho4.CarrinhoCliente.Add(produto3);
-            carrinho4.CarrinhoCliente.Add(produto9);
-            carrinho4.CarrinhoCliente.Add(produto5);
+            carrinho4.CarrinhoCliente.Add(produto0);
+            carrinho4.CarrinhoCliente.Add(produto10);
+            carrinho4.CarrinhoCliente.Add(produto12);
+            carrinho4.CarrinhoCliente.Add(produto15);
 
             cliente1.AtualizaHistoico(carrinho1.CarrinhoCliente);
             cliente2.AtualizaHistoico(carrinho2.CarrinhoCliente);
