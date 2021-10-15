@@ -17,14 +17,14 @@ namespace LojaSuplemento.Recomendador
             List<double> thisUserComparacao = new List<double>();
             List<double> thatUserComparacao = new List<double>();
             var thisUserHistory = thisUser.HistoricoCompras.OrderBy(x => x.IDProduto).ToList();
-            
+
             foreach (Cliente clientes in bancoDadosClientes.AllClientes)
             {
-               
+                var thatUserHistory = clientes.HistoricoCompras.OrderBy(x => x.IDProduto).ToList();
                 if (clientes.IDCliente != thisUser.IDCliente)
                 {
-                    var thatUserHistory = clientes.HistoricoCompras.OrderBy(x => x.IDProduto).ToList();
-                    for (int i = 0; i < thisUserHistory.Count(); i++)
+                    
+                    for (int i = 0; i < thatUserHistory.Count(); i++)
                     {                                       
                         if (thisUserHistory.Contains(thatUserHistory[i]))
                         {

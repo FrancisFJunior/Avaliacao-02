@@ -31,43 +31,55 @@ namespace LojaSuplemento.Leitor
                     string print = String.Format("| {0,2}| {1,-42} | {2} | {3,-9:C} |", item.IDProduto, item.Nome, item.Quantidade, item.Valor);
                     //string print = String.Format("| {0,2}| {1,-42} | {2,-95} | {3} | {4,-9:C}|", item.IDProduto, item.Nome, item.Descricao, item.Quantidade, item.Valor);
                     Console.WriteLine(print);
+
+                }
+                var recomendar = Recomendar(1);
+                Console.WriteLine("|--------------------------|RECOMENDADOS|-------------------------|");
+                foreach (var item in recomendar)
+                {
+                    string print = String.Format("| {0,2}| {1,-42} | {2} | {3,-9:C} |", item.IDProduto, item.Nome, item.Quantidade, item.Valor);
+                    Console.WriteLine(print);
                 }
 
-                Console.WriteLine("|----------------------|DIGITE -1 PARA SAIR|----------------------|\n");
                 Console.WriteLine("|-----------------------------------------------------------------|\n\n");
                 
 
-                Console.WriteLine("|Escolha o numero do produto que deseja compra:");
+                Console.WriteLine("|Escolha o numero do produto que deseja compra ou DIGITE -1 PARA SAIR:");
                 int opcao = int.Parse(Console.ReadLine());
                 if (opcao != -1)
                 {
-                    var id = HelperManipulaProduto.VerificaProduto(opcao);
-                    Console.WriteLine("Descrição do Produto: {0}", id.Descricao);
-                    Console.WriteLine("|PRESSIONE ENTER para efetuar a compra ou DIGITE 0 para CANCELAR A COMPRA:\n");
+                    var produtoEscolhido = HelperManipulaProduto.VerificaProduto(opcao);
+                    Console.WriteLine("Descrição do Produto: {0}", produtoEscolhido.Descricao);
+                    Console.WriteLine("|PRESSIONE 1 para efetuar a compra ou DIGITE 0 para CANCELAR A COMPRA:\n");
                     int cont = int.Parse(Console.ReadLine());
-                    
+                    if(cont != 0)
+                    {
+                        produtoEscolhido.Quantidade -= 1;
+                    }
                 }
                 
-                loop = false;
+                //loop = false;
                 //.CarrinhoCliente.Add(produtoteste);
 
             }
+
+            HelperManipulaProduto.RecebeEstoque(listaProdutos.Produtos);
             
 
         }
 
+        public List<Produto> Recomendar(int idCliente)
+        {
+            var cliente = HelperManipulaDadosCliente.BuscaCliente(idCliente);
+            var listaClientesSimilares = recomendarPorUsuario.ComparaClientes(cliente, bancoDadosClientes);
+            var historicoMaisSimilar = recomendarPorUsuario.getHistoricoClienteMaiorAfinidade(listaClientesSimilares, bancoDadosClientes);
+            var listaSugestoes = recomendarPorUsuario.RecomendarProduto(cliente, historicoMaisSimilar);
+
+            return listaSugestoes;
+        }
+
         public void iniciaDados()
         {
-            Cliente cliente1 = new PessoaFisica(11111111111, "Carlos", 1);
-            Cliente cliente2 = new PessoaFisica(22222222222, "Maria", 2);
-            Cliente cliente3 = new PessoaFisica(33333333333, "Luiz", 3);
-            Cliente cliente4 = new PessoaFisica(44444444444, "Neila", 4);
-
-            bancoDadosClientes.AllClientes.Add(cliente1);
-            bancoDadosClientes.AllClientes.Add(cliente2);
-            bancoDadosClientes.AllClientes.Add(cliente3);
-            bancoDadosClientes.AllClientes.Add(cliente4);
-
             Produto produto0 = new Produto(0, "NATURAL VEGAN", "Formulada por duas proteínas vegetais: proteína dos grãos de arroz e da ervilha.",
                 24, 169.99);
             Produto produto1 = new Produto(1, "CARNIBOL DARKNESS", "Base de proteína miofibrilar hidrolisada de carne bovina, importante para a " +
@@ -193,10 +205,64 @@ namespace LojaSuplemento.Leitor
             listaProdutos.Produtos.Add(produto27);
             listaProdutos.Produtos.Add(produto28);
             listaProdutos.Produtos.Add(produto29);
-            listaProdutos.Produtos.Add(produto30);
+            listaProdutos.Produtos.Add(produto30);            
 
             HelperManipulaProduto.RecebeEstoque(listaProdutos.Produtos);
 
+            Cliente cliente1 = new PessoaFisica(11111111111, "Carlos", 1);
+            Cliente cliente2 = new PessoaFisica(22222222222, "Maria", 2);
+            Cliente cliente3 = new PessoaFisica(33333333333, "Luiz", 3);
+            Cliente cliente4 = new PessoaFisica(44444444444, "Neila", 4);
+
+            bancoDadosClientes.AllClientes.Add(cliente1);
+            bancoDadosClientes.AllClientes.Add(cliente2);
+            bancoDadosClientes.AllClientes.Add(cliente3);
+            bancoDadosClientes.AllClientes.Add(cliente4);
+            HelperManipulaDadosCliente.RecebeCliente(bancoDadosClientes.AllClientes);
+
+            Carrinho carrinho1 = new Carrinho();
+            carrinho1.CarrinhoCliente.Add(produto30);
+            carrinho1.CarrinhoCliente.Add(produto20);
+            carrinho1.CarrinhoCliente.Add(produto3);
+            carrinho1.CarrinhoCliente.Add(produto0);
+            carrinho1.CarrinhoCliente.Add(produto10);
+
+            Carrinho carrinho2 = new Carrinho();
+            carrinho2.CarrinhoCliente.Add(produto15);
+            carrinho2.CarrinhoCliente.Add(produto1);
+            carrinho2.CarrinhoCliente.Add(produto3);
+            carrinho2.CarrinhoCliente.Add(produto0);
+            carrinho2.CarrinhoCliente.Add(produto10);
+
+            Carrinho carrinho3 = new Carrinho();
+            carrinho3.CarrinhoCliente.Add(produto30);
+            carrinho3.CarrinhoCliente.Add(produto20);
+            carrinho3.CarrinhoCliente.Add(produto3);
+            carrinho3.CarrinhoCliente.Add(produto0);
+            carrinho3.CarrinhoCliente.Add(produto10);
+            carrinho3.CarrinhoCliente.Add(produto15);
+            carrinho3.CarrinhoCliente.Add(produto1);
+            carrinho3.CarrinhoCliente.Add(produto7);
+            carrinho3.CarrinhoCliente.Add(produto0);
+            carrinho3.CarrinhoCliente.Add(produto22);
+
+            Carrinho carrinho4 = new Carrinho();
+            carrinho4.CarrinhoCliente.Add(produto15);
+            carrinho4.CarrinhoCliente.Add(produto1);
+            carrinho4.CarrinhoCliente.Add(produto3);
+            carrinho4.CarrinhoCliente.Add(produto9);
+            carrinho4.CarrinhoCliente.Add(produto5);
+
+            cliente1.AtualizaHistoico(carrinho1.CarrinhoCliente);
+            cliente2.AtualizaHistoico(carrinho2.CarrinhoCliente);
+            cliente3.AtualizaHistoico(carrinho3.CarrinhoCliente);
+            cliente4.AtualizaHistoico(carrinho4.CarrinhoCliente);
+
+        }
+
+        public void iniciarHistoricoUsuario()
+        {
+            
         }
 
     }

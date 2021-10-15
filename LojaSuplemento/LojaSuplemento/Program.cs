@@ -10,13 +10,13 @@ namespace LojaSuplemento
     {
         static void Main(string[] args)
         {
-            /*
+            
             FluxoLoja fluxoLoja = new FluxoLoja();
             fluxoLoja.iniciaDados();
             fluxoLoja.TelaPrincipal();
-            */
+            
 
-
+            /*
             Produto listaProdutos = new Produto();
             Cliente cliente1 = new PessoaFisica(1234,"teste1", 1);
             Cliente cliente2 = new PessoaFisica(1234,"teste2", 2);
@@ -71,11 +71,9 @@ namespace LojaSuplemento
 
             HelperManipulaProduto.RecebeEstoque(listaProdutos.Produtos);
 
-            var testando = recomendarPorUsuario.ComparaClientes(cliente1, bancoDadosClientes);
-            var testando2 = recomendarPorUsuario.getHistoricoClienteMaiorAfinidade(testando, bancoDadosClientes);
-            var testando3 = recomendarPorUsuario.RecomendarProduto(cliente1, testando2);
+            
 
-            Console.WriteLine(testando);
+            Console.WriteLine(pegaPorcentagem);*/
 
 
             

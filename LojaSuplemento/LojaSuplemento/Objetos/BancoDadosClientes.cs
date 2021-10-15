@@ -13,6 +13,8 @@ namespace LojaSuplemento.Helpers
         {
             allClientes = new List<Cliente>();
         }
+
+
         public List<Cliente> AllClientes
         {
             get { return allClientes; }

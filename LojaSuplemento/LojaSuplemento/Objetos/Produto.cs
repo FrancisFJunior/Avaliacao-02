@@ -73,16 +73,7 @@ namespace LojaSuplemento.Objetos
         public int Quantidade
         {
             get { return qtd; }
-            set { 
-                if (value <= Quantidade)
-                {
-                    Console.WriteLine("Não possue essa quantidade no estoque");
-                }
-                else
-                {
-                    qtd = value;
-                }
-            }
+            set {qtd = value;}
         }
         public double Valor
         {
