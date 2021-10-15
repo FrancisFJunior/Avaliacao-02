@@ -3,20 +3,16 @@ using LojaSuplemento.Objetos;
 using LojaSuplemento.Recomendador;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Text;
 
 namespace LojaSuplemento.Fluxo
 {
     class FluxoLoja
     {
-        //StreamWriter produtos = new StreamWriter("produtos.txt");
-        //StreamWriter clientes = new StreamWriter("clientes.txt");
-        //StreamWriter histotico = new StreamWriter("produtos.txt");
         BancoDadosClientes bancoDadosClientes = new BancoDadosClientes();
         RecomendarPorUsuario recomendarPorUsuario = new RecomendarPorUsuario();
         Produto listaProdutos = new Produto();
         Carrinho carrinho1 = new Carrinho();
+        Cliente cliente1 = new PessoaFisica(11111111111,"Carlos", 1);
 
         public void TelaPrincipal()
         {
@@ -34,8 +30,10 @@ namespace LojaSuplemento.Fluxo
                     Console.WriteLine(print);
 
                 }
+
                 var recomendar = Recomendar(1);
                 Console.WriteLine("|--------------------------|RECOMENDADOS|-------------------------|");
+
                 foreach (var item in recomendar)
                 {
                     string print = String.Format("| {0,2}| {1,-42} | {2} | {3,-9:C} |", item.IDProduto, item.Nome, item.Quantidade, item.Valor);
@@ -52,8 +50,8 @@ namespace LojaSuplemento.Fluxo
                     var produtoEscolhido = HelperManipulaProduto.VerificaProduto(opcao);
 
                     Console.WriteLine("|Nome do Produto: {0}", produtoEscolhido.Nome);
-                    Console.WriteLine("|Descrição do Produto: {0}\n", produtoEscolhido.Descricao);
-                    Console.WriteLine("|PRESSIONE 1 para efetuar a compra ou DIGITE 0 para CANCELAR A COMPRA:");
+                    Console.WriteLine("|Descrição do Produto: {0}\n\n", produtoEscolhido.Descricao);
+                    Console.WriteLine("|PRESSIONE 0 para efetuar a compra ou DIGITE 1 para CANCELAR A COMPRA:");
 
                     int cont = int.Parse(Console.ReadLine());
                     if(cont == 1)
@@ -62,7 +60,8 @@ namespace LojaSuplemento.Fluxo
                         carrinho1.CarrinhoCliente.Add(produtoEscolhido);
                         recomendar.Remove(produtoEscolhido);
 
-                    }else if (cont == 0)
+                    }
+                    else if (cont == 0)
                     {
                         TelaPrincipal();
                     }
@@ -71,6 +70,7 @@ namespace LojaSuplemento.Fluxo
                 {
                     NotaFiscal();
                     loop = false;
+                    
                 }
             }
 
@@ -99,7 +99,7 @@ namespace LojaSuplemento.Fluxo
             Console.WriteLine("|-----------------------------------------------------------------|\n\n");
 
 
-            Console.WriteLine("|PRESSIONE 0 para efetuar o pagamento ou 1 PARA VOLTAR as compras |\n\n");
+            Console.WriteLine("|PRESSIONE 0 para efetuar o pagamento ou 1 PARA VOLTAR as compras |");
             int opcao = int.Parse(Console.ReadLine());
             if (opcao == 1)
             {
