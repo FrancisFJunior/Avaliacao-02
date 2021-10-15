@@ -60,6 +60,7 @@ namespace LojaSuplemento.Fluxo
                     {
                         produtoEscolhido.Quantidade -= 1;
                         carrinho1.CarrinhoCliente.Add(produtoEscolhido);
+                        recomendar.Remove(produtoEscolhido);
 
                     }else if (cont == 0)
                     {
@@ -276,12 +277,11 @@ namespace LojaSuplemento.Fluxo
 
             Carrinho carrinho2 = new Carrinho();
             carrinho2.CarrinhoCliente.Add(produto30);
-            carrinho2.CarrinhoCliente.Add(produto20);
-            carrinho2.CarrinhoCliente.Add(produto3);
-            carrinho2.CarrinhoCliente.Add(produto0);
-            carrinho2.CarrinhoCliente.Add(produto10);
-            carrinho2.CarrinhoCliente.Add(produto9);
             carrinho2.CarrinhoCliente.Add(produto13);
+            carrinho2.CarrinhoCliente.Add(produto3);
+            carrinho2.CarrinhoCliente.Add(produto9);
+            carrinho2.CarrinhoCliente.Add(produto10);
+            carrinho2.CarrinhoCliente.Add(produto18);
 
             Carrinho carrinho3 = new Carrinho();
             carrinho3.CarrinhoCliente.Add(produto30);
@@ -308,10 +308,6 @@ namespace LojaSuplemento.Fluxo
 
         }
 
-        public void iniciarHistoricoUsuario()
-        {
-            
-        }
 
     }
 }

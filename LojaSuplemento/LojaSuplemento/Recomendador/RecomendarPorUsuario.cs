@@ -11,6 +11,7 @@ namespace LojaSuplemento.Recomendador
 {
     class RecomendarPorUsuario
     {
+        List<Produto> produtosRecomendados = new List<Produto>();
         public List<SimilaridadeCliente> ComparaClientes(Cliente thisUser, BancoDadosClientes bancoDadosClientes)
         {
             SimilaridadeCliente similaridadeCliente = new SimilaridadeCliente();
@@ -23,21 +24,24 @@ namespace LojaSuplemento.Recomendador
                 var thatUserHistory = clientes.HistoricoCompras.OrderBy(x => x.IDProduto).ToList();
                 if (clientes.IDCliente != thisUser.IDCliente)
                 {
-
-                    for (int i = 0; i < thisUserHistory.Count(); i++)
+                    if (thatUserHistory.Count() > thisUserHistory.Count())
                     {
-                        if (thisUserHistory.Contains(thatUserHistory[i]))
+                        for (int i = 0; i < thisUserHistory.Count(); i++)
                         {
-                            thisUserComparacao.Add(1);
-                            thatUserComparacao.Add(1);
+                            if (thisUserHistory.Contains(thatUserHistory[i]))
+                            {
+                                thisUserComparacao.Add(1);
+                                thatUserComparacao.Add(1);
 
-                        }
-                        else
-                        {
-                            thisUserComparacao.Add(1);
-                            thatUserComparacao.Add(0);
+                            }
+                            else
+                            {
+                                thisUserComparacao.Add(1);
+                                thatUserComparacao.Add(0);
 
+                            }
                         }
+
                     }
                     double[] thisUserArray = thisUserComparacao.ToArray();
                     double[] thatUserArray = thatUserComparacao.ToArray();
@@ -58,27 +62,36 @@ namespace LojaSuplemento.Recomendador
         public List<Produto> getHistoricoClienteMaiorAfinidade(List<SimilaridadeCliente> clientesParecidos, BancoDadosClientes bancoDadosClientes)
         {
             List<Produto> historicoClienteEscolhido = new List<Produto>();
-
+            
             var cliente = clientesParecidos.FirstOrDefault(x => x.ComparacaoCliente > 60);
             foreach (var item in bancoDadosClientes.AllClientes)
             {
-                if (cliente.IDClienteComparado == item.IDCliente)
+                if (cliente != null)
                 {
-                    historicoClienteEscolhido = HelperManipulaDadosCliente.getHistoricoCliente(item);
+                    if (cliente.IDClienteComparado == item.IDCliente)
+                    {
+                        historicoClienteEscolhido = HelperManipulaDadosCliente.getHistoricoCliente(item);
+                    }
                 }
+                
             }
             return historicoClienteEscolhido;
         }
 
         public List<Produto> RecomendarProduto(Cliente cliente, List<Produto> historicoClienteMaiorAfinidade)
         {
-            List<Produto> produtosRecomendados = new List<Produto>();
+
+            
             foreach(var produto in historicoClienteMaiorAfinidade)
             {
                var produtoEncontrado = HelperManipulaProduto.VerificaProduto(produto.IDProduto);
                 if (!cliente.HistoricoCompras.Contains(produtoEncontrado))
                 {
-                    produtosRecomendados.Add(produto);
+                    if (!produtosRecomendados.Contains(produtoEncontrado))
+                    {
+                        produtosRecomendados.Add(produto);
+
+                    }
                 }
 
             }
